@@ -36,22 +36,22 @@ modules:
     uninstall: [devel, views_ui]
 target-hooks:
   frontend-setup:
-    dir: '${docroot}'
+    dir: '${web}'
     command: 'echo ''No frontend-setup configured.'''
   frontend-build:
-    dir: '${docroot}'
+    dir: '${web}'
     command: 'echo ''No frontend-build configured.'''
   pre-config-import:
-    dir: '${docroot}'
+    dir: '${web}'
     command: 'echo ''No pre-config-import configured.'''
   post-deploy-build:
-    dir: '${deploy.dir}/docroot'
+    dir: '${deploy.dir}/web'
     command: 'echo ''No post-deploy build configured.'''
   post-setup-build:
-    dir: '${docroot}'
+    dir: '${web}'
     command: 'echo ''No post-setup build configured.'''
   post-deploy:
-    dir: '${docroot}'
+    dir: '${web}'
     command: 'echo ''No post-deploy build configured.'''
 disable-targets:
   validate:
