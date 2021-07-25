@@ -22,7 +22,7 @@
 /sites/simpletest
 
 # Ignore drupal core (if not versioning drupal sources)
-/core
+web/core
 /modules/README.txt
 /profiles/README.txt
 /sites/README.txt
@@ -47,3 +47,7 @@
 /robots.txt
 /update.php
 /web.config
+web/modules/contrib
+web/sites/*/files
+web/themes
+web/modules

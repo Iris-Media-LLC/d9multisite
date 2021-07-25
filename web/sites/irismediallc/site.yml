@@ -1,0 +1,7 @@
+project:
+  profile:
+    name: standard
+drush:
+  aliases:
+    local: irismediallc.lndo.site
+    prod: irismediallc.prod
