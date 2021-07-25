@@ -22,7 +22,7 @@
 /sites/simpletest
 
 # Ignore drupal core (if not versioning drupal sources)
-web/core
+docroot/core
 /modules/README.txt
 /profiles/README.txt
 /sites/README.txt
@@ -46,9 +46,9 @@ web/core
 /README.txt
 /robots.txt
 /update.php
-/web.config
-web/modules/contrib
-web/sites/*/files
-web/themes
-web/modules
+/docroot.config
+docroot/modules/contrib
+docroot/sites/*/files
+docroot/themes
+docroot/modules
 deployment_identifier
