@@ -81,11 +81,6 @@ modules:
       - devel
       - views_ui
 disable-targets:
-  tests:
-    phpcs:
-      sniff:
-          files: true
-disable-targets:
   validate:
     phpcs: true
   git:
