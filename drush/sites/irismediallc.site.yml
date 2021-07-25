@@ -1,6 +1,16 @@
 local:
   paths:
-    drush: /${env.cwd}/vendor/bin/drush
-    files: /${env.cwd}/web/sites/adbuilder/files
-  root: '${env.cwd}/web'
+    drush: ${env.cwd}/vendor/bin/drush
+    files: ${env.cwd}/docroot/sites/adbuilder/files
+  root: '${env.cwd}/docroot'
+  uri: 'http://irismediallc.lndo.site'
+
+prod:
+  host: 147.182.143.42
+  user: root
+  uri: irismediallc.com
+  paths:
+    drush: ${env.cwd}/vendor/bin/drush
+    files: ${env.cwd}/docroot/sites/adbuilder/files
+  root: '${env.cwd}/docroot'
   uri: 'http://irismediallc.lndo.site'
