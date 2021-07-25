@@ -1,0 +1,16 @@
+name: d9multisite
+recipe: drupal9
+config:
+  php: '7.4'
+  webroot: ./web
+  via: 'apache:2.4'
+  database: 'mysql:5.7'
+services:
+  appserver:
+    build:
+      - composer install
+proxy:
+  appserver:
+    - tamupariwarny.lndo.site
+    - irismediallc.lndo.site
+    - justcartonline.lndo.site
