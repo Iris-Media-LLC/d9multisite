@@ -1,7 +1,7 @@
 local:
   paths:
     drush: ${env.cwd}/vendor/bin/drush
-    files: ${env.cwd}/docroot/sites/adbuilder/files
+    files: ${env.cwd}/docroot/sites/irismediallc/files
   root: '${env.cwd}/docroot'
   uri: 'http://irismediallc.lndo.site'
 
