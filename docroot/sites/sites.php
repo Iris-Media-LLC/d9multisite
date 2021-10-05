@@ -57,12 +57,13 @@ if (isset($_SERVER["SITE_ENVIRONMENT"])) {
     ##+++++++++++++++++++++++++++ Test SITES ++++++++++++++++++++++++++++++++++++++++++++
     $sites['tamupariwarny.com'] = 'tamupariwarny';
     $sites['irismediallc.com'] = 'irismediallc';
-    $sites['justcartonline.com'] = 'justcartonline';  
+    $sites['irislashinc.com'] = 'irislashinc';
+    $sites['www.irislashinc.com'] = 'irislashinc';
   }
 } 
 else {
   ##+++++++++++++++++++++++++++ Local SITES ++++++++++++++++++++++++++++++++++++++++++++
   $sites['tamupariwarny.lndo.site'] = 'tamupariwarny';
   $sites['irismediallc.lndo.site'] = 'irismediallc';
-  $sites['justcartonline.lndo.site'] = 'justcartonline';
+  $sites['irislashinc.lndo.site'] = 'irislashinc';
 }

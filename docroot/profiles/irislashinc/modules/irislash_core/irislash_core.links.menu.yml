@@ -1,0 +1,6 @@
+irislash_core.settings_form:
+  title: irislash_core
+  description: Configure irislash_core.
+  parent: system.admin_config_system
+  route_name: irislash_core.settings_form
+  weight: 10

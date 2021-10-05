@@ -4,7 +4,7 @@ config:
   php: '7.4'
   webroot: ./docroot
   via: 'apache:2.4'
-  database: 'mysql:5.7'
+  database: mysql:5.7
 services:
   appserver:
     build:
@@ -13,4 +13,4 @@ proxy:
   appserver:
     - tamupariwarny.lndo.site
     - irismediallc.lndo.site
-    - justcartonline.lndo.site
+    - irislashinc.lndo.site

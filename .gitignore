@@ -31,3 +31,5 @@ docroot/modules
 deployment_identifier
 .gitattributes
 .editorconfig
+products
+docroot/libraries/kint
