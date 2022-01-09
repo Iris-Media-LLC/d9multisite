@@ -11,7 +11,7 @@ git:
   default_branch: master
   remotes:
     # - 'multisite@svn-23659.prod.hosting.acquia.com:multisite.git'
-    - 'root@irismediallc.com:/var/repo/irismediallc.git'
+    - 'ghalenir@irismediallc.com:/var/repo/irismediallc.git'
 drush:
   aliases:
     remote: '${project.machine_name}.remote'

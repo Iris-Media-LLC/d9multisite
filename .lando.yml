@@ -1,7 +1,7 @@
 name: d9multisite
 recipe: drupal9
 config:
-  php: '7.4'
+  php: '8.0.14'
   webroot: ./docroot
   via: 'apache:2.4'
   database: mysql:5.7
