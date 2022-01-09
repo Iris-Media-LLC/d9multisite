@@ -27,7 +27,7 @@ git:
   default_branch: master
   remotes:
     # - 'multisite@svn-23659.prod.hosting.acquia.com:multisite.git'
-    - 'root@irismediallc.com:/var/repo/irismediallc.git'
+    - 'ghalenir@irismediallc.com:/var/repo/irismediallc.git'
   hooks:
     pre-commit: false
 deploy:
