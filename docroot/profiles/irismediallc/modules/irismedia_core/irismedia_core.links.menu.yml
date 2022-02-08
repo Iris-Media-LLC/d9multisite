@@ -1,0 +1,6 @@
+irismedia_core.settings_form:
+  title: irismedia_core
+  description: Configure irismedia_core.
+  parent: system.admin_config_system
+  route_name: irismedia_core.settings_form
+  weight: 10

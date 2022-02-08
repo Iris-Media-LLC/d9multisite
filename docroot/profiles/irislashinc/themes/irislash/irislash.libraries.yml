@@ -1,0 +1,63 @@
+# Main theme library.
+global:
+  js:
+    js/irislash.js: {}
+    js/bootstrap.min.js: {}
+    js/modernizr.custom.js: {}	
+    js/jquery.easing.js: {}	
+    js/jquery.appear.js: {}
+    js/jquery.scrollto.js: {}
+    js/menu.js: {}
+    js/materialize.js: {}
+    js/tweenmax.min.js: {}
+    js/slideshow.js: {}
+    js/imagesloaded.pkgd.min.js: {}
+    js/isotope.pkgd.min.js: {}
+    js/jquery.flexslider.js: {}
+    js/owl.carousel.min.js: {}
+    js/jquery.magnific-popup.min.js: {}
+    js/hero-form.js: {}
+    js/contact-form.js: {}
+    js/comment-form.js: {}
+    js/booking-form.js: {}
+    js/jquery.datetimepicker.full.js: {}
+    js/jquery.validate.min.js: {}
+    js/jquery.ajaxchimp.min.js: {}
+    js/custom.js: {scope: 'footer'}
+  dependencies:
+    - core/jquery
+  css:
+    base:
+      css/base/elements.css: {}
+    component:
+      css/components/block.css: {}
+      css/components/breadcrumb.css: {}
+      css/components/field.css: {}
+      css/components/form.css: {}
+      css/components/header.css: {}
+      css/components/menu.css: {}
+      css/components/messages.css: {}
+      css/components/node.css: {}
+      css/components/sidebar.css: {}
+      css/components/table.css: {}
+      css/components/tabs.css: {}
+      css/components/buttons.css: {}
+    layout:
+      css/layouts/layout.css: {}
+      css/bootstrap.min.css: {}
+      https://use.fontawesome.com/releases/v5.11.0/css/all.css: {type: 'external'}
+      https://fonts.googleapis.com/css2?family=Lustria&display=swap: {type: 'external'}
+      https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap: {type: 'external'}
+      https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap: {type: 'external'}
+      css/menu.css: {}
+      css/dropdown-effects/fade-down.css: {}
+      css/tweenmax.css: {}
+      css/magnific-popup.css: {}
+      css/owl.carousel.min.css: {}
+      css/flexslider.css: {}
+      css/owl.theme.default.min.css: {}
+      css/jquery.datetimepicker.min.css: {}
+      css/pink-theme.css: {}
+      css/responsive.css: {}
+    theme:
+      css/theme/print.css: { media: print }

@@ -1,0 +1,15 @@
+irislash_core.example:
+  path: '/irislash-core/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\irislash_core\Controller\IrislashCoreController::build'
+  requirements:
+    _permission: 'access content'
+
+irislash_core.settings_form:
+  path: '/admin/config/system/irislash-core'
+  defaults:
+    _title: 'irislash_core settings'
+    _form: 'Drupal\irislash_core\Form\SettingsForm'
+  requirements:
+    _permission: 'administer irislash_core configuration'

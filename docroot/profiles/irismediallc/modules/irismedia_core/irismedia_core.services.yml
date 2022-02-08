@@ -1,0 +1,6 @@
+services:
+  irismedia_core.event_subscriber:
+    class: Drupal\irismedia_core\EventSubscriber\IrismediaCoreSubscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: event_subscriber }

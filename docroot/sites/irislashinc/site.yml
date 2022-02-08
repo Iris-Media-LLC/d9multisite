@@ -1,0 +1,7 @@
+project:
+  profile:
+    name: standard
+drush:
+  aliases:
+    local: irislashinc.lndo.site
+    prod: irislashinc.prod

@@ -1,0 +1,5 @@
+services:
+  irismedia_core.commands:
+    class: \Drupal\irismedia_core\Commands\IrismediaCoreCommands
+    tags:
+      - { name: drush.command }

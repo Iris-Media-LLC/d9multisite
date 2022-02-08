@@ -1,0 +1,4 @@
+administer irismedia_core configuration:
+  title: 'Administer irismedia_core configuration'
+  description: 'Optional description.'
+  restrict access: true

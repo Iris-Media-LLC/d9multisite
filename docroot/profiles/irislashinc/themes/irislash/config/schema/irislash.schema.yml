@@ -1,0 +1,8 @@
+# Schema for the configuration files of the irislash theme.
+irislash.settings:
+  type: theme_settings
+  label: 'irislash settings'
+  mapping:
+    font_size:
+      type: integer
+      label: Font size

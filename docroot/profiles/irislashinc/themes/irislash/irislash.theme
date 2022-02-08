@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the irislash theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function irislash_preprocess_html(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function irislash_preprocess_page(&$variables) {
+    $variables['theme_path'] = base_path() . $variables['directory'];
+
+    // #ead5d1
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function irislash_preprocess_node(&$variables) {
+
+}
+
+/**
+ * Implements hook page alter
+ * 
+ */
+function irislash_theme_suggestions_page_alter(array &$suggestions, array &$variables) {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    $suggestions[] = 'page__node__'.trim($result,'/');
+}

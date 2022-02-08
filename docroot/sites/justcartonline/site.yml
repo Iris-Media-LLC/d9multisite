@@ -1,7 +1,0 @@
-project:
-  profile:
-    name: standard
-drush:
-  aliases:
-    local: justcartonline.lndo.site
-    prod: justcartonline.prod
