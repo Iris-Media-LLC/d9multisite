@@ -1,0 +1,15 @@
+irismedia_core.example:
+  path: '/irismedia-core/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\irismedia_core\Controller\IrismediaCoreController::build'
+  requirements:
+    _permission: 'access content'
+
+irismedia_core.settings_form:
+  path: '/admin/config/system/irismedia-core'
+  defaults:
+    _title: 'irismedia_core settings'
+    _form: 'Drupal\irismedia_core\Form\SettingsForm'
+  requirements:
+    _permission: 'administer irismedia_core configuration'

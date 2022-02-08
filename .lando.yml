@@ -1,8 +1,9 @@
 name: d9multisite
 recipe: drupal9
 config:
-  php: '8.0.14'
+  php: '8.0'
   webroot: ./docroot
+  composer_version: '2.0.7'
   via: 'apache:2.4'
   database: mysql:5.7
 services:
