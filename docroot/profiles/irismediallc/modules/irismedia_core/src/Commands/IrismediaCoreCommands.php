@@ -43,16 +43,16 @@ class IrismediaCoreCommands extends DrushCommands {
 
   /**
    * Import data from setmore
-   * @param $arg1
+   * @param $year
    * @command irismedia_core:setmore
    * @aliases setmore
    */
 
-  public function haldleSetmore($arg1) {
+  public function haldleSetmore($year) {
     $this->logger()->success(dt('Achievement unlocked.'));
 
     $module_path = \Drupal::service('file_system')->realpath(\Drupal::service('module_handler')->getModule('irismedia_core')->getPath());
-    $url = $module_path."/files/22.csv";
+    $url = $module_path."/files/".$year.".csv";
     $row = 1;
     if (($handle = fopen($url, "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -83,8 +83,12 @@ class IrismediaCoreCommands extends DrushCommands {
   private function parseData($row, $header=false) {
     $i=0;
     foreach($row['data'] as $item) {
-      if ($i > 3) {
+      if ($i > 100) {
         // return;
+      }
+      if (empty($item[7])) {
+        print_r("\n".$i." Skipping Booking :".$item[18]);
+        continue;
       }
       // Service info
       $service_title = $item[2];
@@ -94,7 +98,7 @@ class IrismediaCoreCommands extends DrushCommands {
       $service_nid = $service_query->execute();
       $service_nid = reset($service_nid);
       if (empty($service_nid)) {
-        print_r("\n New service :".$service_title."\n");
+        // print_r("\n New service :".$service_title."\n");
         $service_node = Node::create([
           'type' => 'services',
           'title' => $service_title,
@@ -112,7 +116,7 @@ class IrismediaCoreCommands extends DrushCommands {
       $staff_nid = $staff_query->execute();
       $staff_nid = reset($staff_nid);
       if (empty($staff_nid)) {
-        print_r("\n New Staff :".$staff_title."\n");
+        // print_r("\n New Staff :".$staff_title."\n");
         $staff_node = Node::create([
           'type' => 'staff',
           'title' => $staff_title,
@@ -127,9 +131,9 @@ class IrismediaCoreCommands extends DrushCommands {
       $user = reset($users);
       if (!empty($users) && !empty($user->id())) {
         $customer_id = $user->id();
-        print_r("\n Existing Customer ".$customer_id."\n");
+        // print_r("\n Existing Customer ".$customer_id."\n");
       } else {
-        print_r("\n Adding New Customer ".$name."\n");
+        // print_r("\n Adding New Customer ".$name."\n");
         $user = User::create();
         $user->setUsername($name); // This username must be unique and accept only [a-Z,0-9, - _ @].
         $user->setPassword('test');
@@ -147,7 +151,8 @@ class IrismediaCoreCommands extends DrushCommands {
       }
 
       // Appointment info
-      $booking_id = $item[19];
+      $booking_id = $item[18];
+      $guid_id = md5($item[18]."-".strtotime($start_time));
       $booking_query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
       $booking_query->condition('field_id', $booking_id);
       $booking_query->condition('type','booking','=');
@@ -155,7 +160,7 @@ class IrismediaCoreCommands extends DrushCommands {
       $booking_nid = reset($booking_nid);
 
       if (empty($booking_nid)) {
-        print_r("\n Creating New Booking :".$booking_nid."\n");
+        print_r("\n".$i." Creating New Booking :".$booking_id);
         $time_diff = explode("-",$item[1]);
         $start_time = $item[0].' '.$time_diff[0]; //"Mar 05 2022 9:00 AM";
         $end_time = $item[0].' '.$time_diff[1]; //"Mar 05 2022 9:00 AM";
@@ -167,25 +172,32 @@ class IrismediaCoreCommands extends DrushCommands {
           'field_customer' => ['target_id' => $customer_id],
           'field_date' => ['value' => date("Y-m-d\TH:i:s",strtotime($start_time)), 'end_value' =>  date("Y-m-d\TH:i:s",strtotime($end_time))],
           'field_staff' => ['target_id' => $staff_nid],
-          'field_status' => $item[17],
-          'field_id' => $booking_id,
-          'field_promo_code' => $item[16],
-          'field_comments' => $item[18],
-          'field_booking_from' => $item[20],
+          'field_year' => ['target_id' => $this->getLabelTid(date("Y",strtotime($start_time)),'year')],
+          'field_month' => ['target_id' => $this->getLabelTid(date("F",strtotime($start_time)),'month')],
+          'field_day' => ['target_id' => $this->getLabelTid(date("d",strtotime($start_time)),'day')],
           'field_label' => ['target_id' => $this->getLabelTid($item[13],'label')],
+          'field_promo_code' => $item[14],
+          'field_status' => $item[16],
+          'field_comments' => $item[17],
+          'field_id' => $booking_id,
+          'field_booking_from' => $item[19],
+          'field_guid' => $guid,
         ];
+
+        // print_r($item);
+        // print_r($booking_fields);
 
         $booking_node = Node::create($booking_fields);
         $booking_node->save();
         $booking_nid = $booking_node->id();
-      } else {
-        print_r("Booking ID:".$booking_nid." already exist");
+      // } else {
+        // print_r("\n".$i." Booking ID:".$booking_id." already exist");
         // $label = ['target_id' => $this->getLabelTid($item[13],'label')];
         // $booking_node = Node::load($booking_nid);
         // $booking_node->set('field_label',$label);
         // $booking_node->save();
         // $booking_nid = $booking_node->id();
-      }
+      // }
     $i++;
     }
   }
